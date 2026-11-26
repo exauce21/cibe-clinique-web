@@ -1,0 +1,23 @@
+{
+  "name": "CiBé Clinique",
+  "slogan": "Tous pour la santé. Tout proche de vous !",
+  "description": "CiBé Clinique, clinique privée à Bimbo 2, Bangui (RCA) : médecine générale, sept spécialités, urgences, maternité, hospitalisation, laboratoire, échographie, ECG et pharmacie.",
+  "url": "https://www.cibe-clinique.com",
+  "ogImage": "assets/img/og-cibe-clinique.jpg",
+  "phone": "+236 70 00 22 63",
+  "phoneShort": "70 00 22 63",
+  "phoneHref": "+23670002263",
+  "phone2": "+236 74 35 58 29",
+  "phone2Href": "+23674355829",
+  "email": "direction@cibe-clinique.com",
+  "street": "Rue de maison Prisca",
+  "district": "Bimbo 2",
+  "city": "Bangui",
+  "country": "République centrafricaine",
+  "openingDate": "26 février 2026",
+  "mapQuery": "CiB%C3%A9+Clinique+Bimbo+Bangui",
+  "facebook": "https://www.facebook.com/p/CiB%C3%A9-Clinique-61552761969778/",
+  "instagram": "https://www.instagram.com/cibeclinique/",
+  "linkedin": "https://www.linkedin.com/company/cib%C3%A9-clinique/",
+  "formEndpoint": ""
+}

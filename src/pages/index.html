@@ -1,0 +1,362 @@
+<!--meta {
+  "title": "CiBé Clinique | Clinique privée à Bimbo 2, Bangui",
+  "description": "CiBé Clinique, clinique privée de proximité à Bimbo 2, Bangui : médecine générale, sept spécialités, urgences, maternité, laboratoire, échographie, ECG, MAPA, hospitalisation et pharmacie.",
+  "nav": "accueil",
+  "bodyClass": "page-home"
+} -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="pill"><span class="dot dot--mint" aria-hidden="true"></span>Ouverte depuis le {{site.openingDate}} à {{site.district}}</p>
+      <h1 class="hero__title" id="hero-title">
+        <span>Tous pour la santé.</span>
+        <span class="light">Tout proche de vous.</span>
+      </h1>
+      <p class="hero__lead">Médecine générale, sept spécialités, maternité, laboratoire, imagerie et pharmacie réunis dans une seule clinique, à côté de chez vous.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="contact.html#rendez-vous">
+          <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+          Prendre rendez-vous
+        </a>
+        <a class="btn btn--ghost btn--lg" href="tel:{{site.phoneHref}}">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          {{site.phone}}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      {{> arc}}
+      <span class="hero__sun" aria-hidden="true"></span>
+      <img class="hero__person"
+           src="assets/img/hero-medecin-1600.webp"
+           srcset="assets/img/hero-medecin-800.webp 800w, assets/img/hero-medecin-1600.webp 1600w"
+           sizes="(max-width: 900px) 100vw, 640px"
+           width="1600" height="1184" fetchpriority="high"
+           alt="Une soignante souriante en tenue médicale, stéthoscope autour du cou">
+      <ul class="hero__chips" aria-label="Services les plus demandés">
+        <li><a class="pill" href="services.html#specialites"><span class="dot dot--mint" aria-hidden="true"></span>Pédiatrie</a></li>
+        <li><a class="pill" href="services.html#maternite"><span class="dot dot--sun" aria-hidden="true"></span>Maternité et CPN</a></li>
+        <li><a class="pill" href="services.html#laboratoire"><span class="dot dot--blue" aria-hidden="true"></span>Laboratoire</a></li>
+        <li><a class="pill" href="services.html#urgences"><span class="pulse" aria-hidden="true"></span>Urgences</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky" aria-labelledby="besoins-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="besoins-title">Qu'est-ce qui vous amène&nbsp;?</h2>
+      <p>Choisissez votre situation, nous vous indiquons le bon service.</p>
+    </div>
+    <ul class="needs" role="list">
+      <li>
+        <a class="need" href="services.html#specialites">
+          <img src="assets/img/pediatrie-consultation-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="">
+          <span><strong>Mon enfant est malade</strong><span>Pédiatrie, vaccinations, suivi de croissance</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="need" href="services.html#maternite">
+          <img src="assets/img/gynecologie-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="">
+          <span><strong>J'attends un bébé</strong><span>CPN, échographie, accouchement</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="need" href="services.html#laboratoire">
+          <img src="assets/img/laboratoire-microscope-800.webp" width="800" height="450" loading="lazy" decoding="async" alt="">
+          <span><strong>Je dois faire des analyses</strong><span>Plus de 65 examens au laboratoire</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="need" href="services.html#explorations">
+          <img src="assets/img/tension-arterielle-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="">
+          <span><strong>Ma tension, mon cœur</strong><span>Cardiologie, ECG, MAPA</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="need" href="services.html#medecine-generale">
+          <img src="assets/img/consultation-medecin-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="">
+          <span><strong>Je ne me sens pas bien</strong><span>Consultation de médecine générale</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+      <li>
+        <a class="need" href="services.html#pharmacie">
+          <img src="assets/img/pharmacie-officine-800.webp" width="800" height="532" loading="lazy" decoding="async" alt="">
+          <span><strong>J'ai une ordonnance</strong><span>Pharmacie et conseils sur place</span></span>
+          <span class="need__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="clinique-title">
+  <div class="container">
+    <div class="statement">
+      <h2 id="clinique-title">Une clinique de quartier, avec tout le plateau technique sous le même toit.</h2>
+      <p>Consultation, examens, résultats, traitement&nbsp;: chez CiBé, votre parcours se fait au même endroit. Moins de déplacements, moins d'attente, et une équipe qui connaît votre dossier.</p>
+    </div>
+    <div class="figures">
+      <p class="figure"><span class="figure__num">7</span><span class="figure__label">spécialités médicales, de la pédiatrie à la néphrologie</span></p>
+      <p class="figure"><span class="figure__num">65+</span><span class="figure__label">examens d'analyses biomédicales réalisés sur place</span></p>
+      <p class="figure"><span class="figure__num">8</span><span class="figure__label">lits de mise en observation, en plus des chambres d'hospitalisation</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <h2 id="services-title">Nos services, du premier rendez-vous au suivi</h2>
+      <p>Chaque service travaille avec les autres&nbsp;: le médecin prescrit, le laboratoire analyse, la pharmacie délivre, sans que vous ayez à changer d'adresse.</p>
+    </div>
+
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Services de la clinique">
+        <button class="tabs__tab" role="tab" id="tab-consult" aria-controls="panel-consult" aria-selected="true" type="button">Consultations</button>
+        <button class="tabs__tab" role="tab" id="tab-mater" aria-controls="panel-mater" aria-selected="false" tabindex="-1" type="button">Maternité</button>
+        <button class="tabs__tab" role="tab" id="tab-labo" aria-controls="panel-labo" aria-selected="false" tabindex="-1" type="button">Laboratoire</button>
+        <button class="tabs__tab" role="tab" id="tab-explo" aria-controls="panel-explo" aria-selected="false" tabindex="-1" type="button">Échographie, ECG, MAPA</button>
+        <button class="tabs__tab" role="tab" id="tab-hospi" aria-controls="panel-hospi" aria-selected="false" tabindex="-1" type="button">Hospitalisation</button>
+        <button class="tabs__tab" role="tab" id="tab-pharma" aria-controls="panel-pharma" aria-selected="false" tabindex="-1" type="button">Pharmacie</button>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-consult" aria-labelledby="tab-consult" tabindex="0">
+        <div class="tabs__media">
+          <img src="assets/img/consultation-medecin-1600.webp" srcset="assets/img/consultation-medecin-800.webp 800w, assets/img/consultation-medecin-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une médecin souriante reçoit une patiente en consultation">
+        </div>
+        <div class="tabs__body">
+          <h3>Médecine générale et spécialités</h3>
+          <p>Le médecin généraliste est votre premier interlocuteur. Il vous examine, prescrit les examens utiles et vous oriente, si besoin, vers l'un de nos spécialistes.</p>
+          <ul class="checklist checklist--two" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pédiatrie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cardiologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Diabétologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Gynécologie-obstétrique</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Neurologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Néphrologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Médecine dentaire</li>
+          </ul>
+          <a class="link-arrow" href="services.html#medecine-generale">Voir les consultations <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-mater" aria-labelledby="tab-mater" tabindex="0" hidden>
+        <div class="tabs__media">
+          <img src="assets/img/gynecologie-1600.webp" srcset="assets/img/gynecologie-800.webp 800w, assets/img/gynecologie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une femme enceinte, les mains posées sur son ventre">
+        </div>
+        <div class="tabs__body">
+          <h3>Maternité et suivi de grossesse</h3>
+          <p>De la première consultation prénatale au retour à la maison, une équipe de sages-femmes et de gynécologues suit la mère et l'enfant.</p>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Consultations prénatales (CPN) et calendrier de suivi</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Échographie obstétricale sur place</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Accouchement et séjour post-natal</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Premiers soins et vaccination du nouveau-né</li>
+          </ul>
+          <a class="link-arrow" href="services.html#maternite">Découvrir la maternité <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-labo" aria-labelledby="tab-labo" tabindex="0" hidden>
+        <div class="tabs__media">
+          <img src="assets/img/laboratoire-analyse-1600.webp" srcset="assets/img/laboratoire-analyse-800.webp 800w, assets/img/laboratoire-analyse-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Un biologiste observe un échantillon au microscope">
+        </div>
+        <div class="tabs__body">
+          <h3>Laboratoire d'analyses biomédicales</h3>
+          <p>Prélèvement, analyse et résultats au même endroit. Chaque résultat est validé par un biologiste avant de vous être remis ou transmis à votre médecin.</p>
+          <ul class="checklist checklist--two" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hématologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Biochimie sanguine et urinaire</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sérologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Bactériologie</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Parasitologie</li>
+          </ul>
+          <a class="link-arrow" href="services.html#laboratoire">Voir les examens <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-explo" aria-labelledby="tab-explo" tabindex="0" hidden>
+        <div class="tabs__media">
+          <img src="assets/img/echographie-1600.webp" srcset="assets/img/echographie-800.webp 800w, assets/img/echographie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une soignante prépare un examen à côté d'un échographe">
+        </div>
+        <div class="tabs__body">
+          <h3>Explorations fonctionnelles et imagerie</h3>
+          <p>Des examens qui complètent la consultation, réalisés et interprétés sur place, avec un compte rendu remis au médecin qui vous suit.</p>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Échographie cardiaque, abdominale, obstétricale et autres</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Électrocardiogramme (ECG)</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>MAPA&nbsp;: mesure de la tension artérielle sur 24 heures</li>
+          </ul>
+          <a class="link-arrow" href="services.html#explorations">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-hospi" aria-labelledby="tab-hospi" tabindex="0" hidden>
+        <div class="tabs__media">
+          <img src="assets/img/infirmiere-notes-1600.webp" srcset="assets/img/infirmiere-notes-800.webp 800w, assets/img/infirmiere-notes-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Une infirmière remplit une feuille de surveillance">
+        </div>
+        <div class="tabs__body">
+          <h3>Observation et hospitalisation</h3>
+          <p>Quand votre état demande une surveillance, vous restez avec nous. Les équipes de jour et de nuit se relaient à votre chevet.</p>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>8 lits de mise en observation</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Chambres d'hospitalisation standard et VIP</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Surveillance, soins et compte rendu de sortie</li>
+          </ul>
+          <a class="link-arrow" href="services.html#hospitalisation">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="panel-pharma" aria-labelledby="tab-pharma" tabindex="0" hidden>
+        <div class="tabs__media">
+          <img src="assets/img/pharmacie-officine-1600.webp" srcset="assets/img/pharmacie-officine-800.webp 800w, assets/img/pharmacie-officine-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1065" loading="lazy" decoding="async" alt="Une pharmacienne à son poste, devant les rayonnages de médicaments">
+        </div>
+        <div class="tabs__body">
+          <h3>Pharmacie</h3>
+          <p>Vos médicaments vous sont délivrés sur place, avec les explications utiles sur la prise du traitement.</p>
+          <ul class="checklist" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Délivrance sur ordonnance</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Conseils sur la prise du traitement</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Contrôle des dates de péremption et des lots</li>
+          </ul>
+          <a class="link-arrow" href="services.html#pharmacie">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink" aria-labelledby="specialites-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <h2 id="specialites-title">Sept spécialités pour vous suivre dans la durée</h2>
+      <p>Diabète, hypertension, maladie des reins, grossesse&nbsp;: les maladies qui demandent un suivi régulier sont prises en charge par des spécialistes, en lien avec votre médecin traitant.</p>
+    </div>
+    <ul class="spec-list" role="list">
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Pédiatrie</span><span class="spec__desc">Maladies de l'enfant, croissance, vaccinations</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Cardiologie</span><span class="spec__desc">Hypertension, cœur, ECG, MAPA, échographie cardiaque</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Diabétologie</span><span class="spec__desc">Dépistage et suivi du diabète, glycémie, HbA1c</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Gynécologie-obstétrique</span><span class="spec__desc">Santé de la femme, grossesse, accouchement</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Neurologie</span><span class="spec__desc">Maux de tête, épilepsie, suites d'AVC</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Néphrologie</span><span class="spec__desc">Maladies des reins et suivi de la fonction rénale</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+      <li><a class="spec" href="services.html#specialites"><span class="spec__name">Médecine dentaire</span><span class="spec__desc">Soins des dents et des gencives, prévention</span><span class="spec__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="urgences-title">
+  <div class="container">
+    <div class="urgent">
+      <div>
+        <h2 id="urgences-title">Une urgence&nbsp;? Venez directement, nous soignons d'abord.</h2>
+        <p>Aux urgences, la prise en charge commence sans formalité. Le paiement se règle après, une fois le patient stabilisé.</p>
+        <div class="urgent__actions">
+          <a class="btn btn--ink btn--lg" href="tel:{{site.phoneHref}}">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+            Appeler le {{site.phone}}
+          </a>
+          <a class="btn btn--ghost btn--lg" href="contact.html#plan">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+            Voir l'itinéraire
+          </a>
+        </div>
+      </div>
+      <p class="urgent__delay">
+        <strong>2&nbsp;h</strong>
+        <span>pour régulariser le paiement après la stabilisation du patient. Les soins ne sont jamais retardés par une question d'argent.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky" aria-labelledby="parcours-title">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="parcours-title">Votre visite en quatre étapes</h2>
+      <p>Un circuit simple et identique pour tous les services, pour que vous sachiez toujours où aller.</p>
+    </div>
+    <ol class="steps" role="list">
+      <li class="step">
+        <h3>Accueil au secrétariat</h3>
+        <p>Vous êtes enregistré et recevez un numéro de dossier qui vous suit dans tous les services.</p>
+      </li>
+      <li class="step">
+        <h3>Passage à la caisse</h3>
+        <p>Vous réglez la prestation au tarif affiché et recevez un reçu, à présenter au service.</p>
+      </li>
+      <li class="step">
+        <h3>Prise en charge</h3>
+        <p>Médecin, sage-femme, laboratoire ou imagerie&nbsp;: vous êtes reçu et votre dossier est complété.</p>
+      </li>
+      <li class="step">
+        <h3>Résultats et suivi</h3>
+        <p>Ordonnance, résultats d'analyses, prochain rendez-vous&nbsp;: vous repartez en sachant quoi faire.</p>
+      </li>
+    </ol>
+    <p class="steps-foot"><a class="link-arrow" href="patients.html">Préparer votre visite <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="equipe-title">
+  <div class="container team">
+    <div class="mosaic">
+      <img src="assets/img/chirurgienne-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Une médecin en tenue de bloc, souriante, devant son équipe">
+      <img src="assets/img/pharmacie-conseil-800.webp" width="800" height="1200" loading="lazy" decoding="async" alt="Un pharmacien conseille une collègue entre les rayonnages">
+      <img src="assets/img/soignante-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Une soignante en tenue bleue, souriante, dans une salle de soins">
+    </div>
+    <div class="team__body">
+      <h2 id="equipe-title">Une équipe pluridisciplinaire, à votre écoute</h2>
+      <p>Médecins, spécialistes, sages-femmes, infirmiers, biologistes et pharmaciens travaillent ensemble autour de chaque patient. Le Médecin Chef Directeur veille à la qualité des soins et au respect des procédures.</p>
+      <ul class="tags" role="list">
+        <li>Médecins généralistes</li>
+        <li>Médecins spécialistes</li>
+        <li>Sages-femmes</li>
+        <li>Infirmiers</li>
+        <li>Biologistes</li>
+        <li>Pharmaciens</li>
+        <li>Accueil et secrétariat</li>
+      </ul>
+      <p><a class="link-arrow" href="clinique.html#equipe">Découvrir la clinique <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky" aria-labelledby="trouver-title">
+  <div class="container">
+    <div class="visit">
+      <div class="visit__info">
+        <h2 id="trouver-title">Nous trouver</h2>
+        <p class="lead">À {{site.district}}, facilement accessible depuis le centre de {{site.city}}.</p>
+        <ul class="contact-list" role="list">
+          <li>
+            <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <span><small>Adresse</small>{{site.street}}, {{site.district}}<br>{{site.city}}, {{site.country}}</span>
+          </li>
+          <li>
+            <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+            <span><small>Téléphone</small><a href="tel:{{site.phoneHref}}">{{site.phone}}</a><br><a href="tel:{{site.phone2Href}}">{{site.phone2}}</a></span>
+          </li>
+          <li>
+            <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+            <span><small>E-mail</small><a href="mailto:{{site.email}}">{{site.email}}</a></span>
+          </li>
+        </ul>
+        <div class="visit__actions">
+          <a class="btn btn--primary" href="contact.html#rendez-vous">Prendre rendez-vous</a>
+          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query={{site.mapQuery}}" target="_blank" rel="noopener">Ouvrir dans Google Maps <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="visit__map">
+        <iframe data-src="https://maps.google.com/maps?q={{site.mapQuery}}&amp;z=15&amp;output=embed" title="Plan d'accès à CiBé Clinique" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>

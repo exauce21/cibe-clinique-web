@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.description}}">
+  <link rel="canonical" href="{{page.url}}">
+  <meta name="theme-color" content="#003a76">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="{{site.name}}">
+  <meta property="og:title" content="{{page.title}}">
+  <meta property="og:description" content="{{page.description}}">
+  <meta property="og:url" content="{{page.url}}">
+  <meta property="og:image" content="{{site.url}}/{{page.ogImage}}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "{{site.name}}",
+    "slogan": "{{site.slogan}}",
+    "url": "{{site.url}}",
+    "logo": "{{site.url}}/assets/logo/logo-cibe.svg",
+    "image": "{{site.url}}/{{site.ogImage}}",
+    "telephone": "{{site.phone}}",
+    "email": "{{site.email}}",
+    "foundingDate": "2026-02-26",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{site.street}}, {{site.district}}",
+      "addressLocality": "{{site.city}}",
+      "addressCountry": "CF"
+    },
+    "medicalSpecialty": ["Pediatric", "Cardiovascular", "Endocrine", "Gynecologic", "Obstetric", "Neurologic", "Renal", "Dentistry", "Emergency", "LaboratoryScience", "Pharmacy"],
+    "sameAs": ["{{site.facebook}}", "{{site.instagram}}", "{{site.linkedin}}"]
+  }
+  </script>
+</head>
+<body class="{{page.bodyClass}}">
+  {{> icons}}
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  {{> header}}
+  <main id="contenu" tabindex="-1">
+{{content}}
+  </main>
+  {{> footer}}
+</body>
+</html>

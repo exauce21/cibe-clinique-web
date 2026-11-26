@@ -1,0 +1,15 @@
+{
+  "name": "cibe-clinique-web",
+  "version": "1.0.0",
+  "description": "Site vitrine officiel de CiBé Clinique (Bimbo 2, Bangui)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "serve": "node build.mjs --serve"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

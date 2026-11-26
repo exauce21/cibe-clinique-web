@@ -1,0 +1,53 @@
+<footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <img src="assets/logo/logo-cibe-blanc.svg" alt="CiBé Clinique, tous pour notre santé" width="200" height="93" loading="lazy">
+          <p>Clinique privée de proximité à Bimbo 2, ouverte depuis le {{site.openingDate}}. Médecine générale, spécialités, maternité, laboratoire, imagerie et pharmacie réunis au même endroit.</p>
+          <ul class="social" aria-label="Réseaux sociaux">
+            <li><a href="{{site.facebook}}" target="_blank" rel="noopener" aria-label="Facebook (nouvelle fenêtre)"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a></li>
+            <li><a href="{{site.instagram}}" target="_blank" rel="noopener" aria-label="Instagram (nouvelle fenêtre)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+            <li><a href="{{site.linkedin}}" target="_blank" rel="noopener" aria-label="LinkedIn (nouvelle fenêtre)"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          </ul>
+        </div>
+
+        <nav class="site-footer__col" aria-label="Services">
+          <h2>Services</h2>
+          <ul>
+            <li><a href="services.html#medecine-generale">Médecine générale</a></li>
+            <li><a href="services.html#specialites">Spécialités</a></li>
+            <li><a href="services.html#maternite">Maternité</a></li>
+            <li><a href="services.html#laboratoire">Laboratoire</a></li>
+            <li><a href="services.html#explorations">Échographie, ECG, MAPA</a></li>
+            <li><a href="services.html#pharmacie">Pharmacie</a></li>
+          </ul>
+        </nav>
+
+        <nav class="site-footer__col" aria-label="La clinique">
+          <h2>La clinique</h2>
+          <ul>
+            <li><a href="clinique.html">Qui sommes-nous</a></li>
+            <li><a href="clinique.html#engagements">Nos engagements</a></li>
+            <li><a href="clinique.html#equipe">L'équipe</a></li>
+            <li><a href="clinique.html#recrutement">Nous rejoindre</a></li>
+            <li><a href="patients.html">Votre visite</a></li>
+            <li><a href="patients.html#questions">Questions fréquentes</a></li>
+          </ul>
+        </nav>
+
+        <div class="site-footer__col site-footer__contact">
+          <h2>Nous joindre</h2>
+          <ul>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><a href="tel:{{site.phoneHref}}">{{site.phone}}</a><br><a href="tel:{{site.phone2Href}}">{{site.phone2}}</a></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:{{site.email}}">{{site.email}}</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>{{site.street}}, {{site.district}}<br>{{site.city}}, {{site.country}}</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© {{site.year}} CiBé Clinique. Tous pour notre santé.</p>
+        <p>En cas d'urgence vitale, rendez-vous directement à la clinique ou appelez le <a href="tel:{{site.phoneHref}}">{{site.phone}}</a>.</p>
+      </div>
+    </div>
+  </footer>

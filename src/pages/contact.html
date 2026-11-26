@@ -1,0 +1,134 @@
+<!--meta {
+  "title": "Contact et rendez-vous | CiBé Clinique, Bangui",
+  "description": "Contactez CiBé Clinique à Bimbo 2, Bangui : téléphone +236 70 00 22 63, e-mail, adresse et plan d'accès. Demandez un rendez-vous en ligne.",
+  "nav": "contact"
+} -->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol role="list"><li><a href="index.html">Accueil</a></li><li><span aria-current="page">Contact</span></li></ol>
+    </nav>
+    <h1 id="page-title">Contact et rendez-vous</h1>
+    <p class="lead">Appelez-nous, écrivez-nous ou envoyez une demande de rendez-vous&nbsp;: le secrétariat vous répond et vous oriente.</p>
+  </div>
+</section>
+
+<section class="section" id="rendez-vous" aria-label="Coordonnées et formulaire de rendez-vous">
+  <div class="container contact-grid">
+    <div class="contact-aside">
+      <h2>Nous joindre</h2>
+      <ul class="contact-list" role="list">
+        <li>
+          <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <span><small>Téléphone</small><a href="tel:{{site.phoneHref}}">{{site.phone}}</a><br><a href="tel:{{site.phone2Href}}">{{site.phone2}}</a></span>
+        </li>
+        <li>
+          <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></span>
+          <span><small>E-mail</small><a href="mailto:{{site.email}}">{{site.email}}</a></span>
+        </li>
+        <li>
+          <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-pin"/></svg></span>
+          <span><small>Adresse</small>{{site.street}}, {{site.district}}<br>{{site.city}}, {{site.country}}</span>
+        </li>
+        <li>
+          <span class="contact-list__icon" aria-hidden="true"><svg class="icon"><use href="#i-clock"/></svg></span>
+          <span><small>Urgences</small>Accueil jour et nuit, venez directement</span>
+        </li>
+      </ul>
+
+      <div class="note">
+        <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+        <p><strong>Urgence&nbsp;?</strong> N'utilisez pas le formulaire. Appelez le <a href="tel:{{site.phoneHref}}">{{site.phone}}</a> ou rendez-vous directement à la clinique.</p>
+      </div>
+
+      <h2 class="contact-aside__sub">Suivez la clinique</h2>
+      <ul class="tags" role="list">
+        <li><a href="{{site.facebook}}" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="{{site.instagram}}" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="{{site.linkedin}}" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <h2>Demander un rendez-vous</h2>
+      <p>Le secrétariat vous rappelle pour confirmer le jour et l'heure. Les champs marqués d'un astérisque sont obligatoires.</p>
+      <form data-rdv-form data-endpoint="{{site.formEndpoint}}" data-email="{{site.email}}" data-phone="{{site.phone}}" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="nom">Nom et prénom <span class="req" aria-hidden="true">*</span></label>
+            <input id="nom" name="nom" type="text" autocomplete="name" required aria-describedby="nom-error">
+            <span class="error" id="nom-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="telephone">Téléphone <span class="req" aria-hidden="true">*</span></label>
+            <input id="telephone" name="telephone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+236 …" required aria-describedby="telephone-error">
+            <span class="error" id="telephone-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error">
+            <span class="error" id="email-error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="service">Service souhaité</label>
+            <select id="service" name="service">
+              <option value="">Je ne sais pas encore</option>
+              <option>Médecine générale</option>
+              <option>Pédiatrie</option>
+              <option>Cardiologie</option>
+              <option>Diabétologie</option>
+              <option>Gynécologie-obstétrique</option>
+              <option>Maternité / CPN</option>
+              <option>Neurologie</option>
+              <option>Néphrologie</option>
+              <option>Médecine dentaire</option>
+              <option>Laboratoire</option>
+              <option>Échographie</option>
+              <option>ECG / MAPA</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label for="date">Date souhaitée</label>
+            <input id="date" name="date" type="date">
+            <span class="hint">Indicative&nbsp;: le secrétariat vous propose le créneau disponible le plus proche.</span>
+          </div>
+          <div class="field field--full">
+            <label for="message">Motif de la demande</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez brièvement la raison de votre visite."></textarea>
+          </div>
+          <div class="field field--full">
+            <label class="consent">
+              <input type="checkbox" id="consentement" name="consentement" value="oui" required aria-describedby="consentement-error">
+              <span>J'accepte que CiBé Clinique utilise ces informations pour me recontacter au sujet de ma demande. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <span class="error" id="consentement-error" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn--primary btn--lg" type="submit">Envoyer la demande</button>
+          <p>Vos données servent uniquement à traiter votre demande de rendez-vous.</p>
+        </div>
+        <p class="form-status" role="status" data-form-status></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky" id="plan" aria-labelledby="plan-title">
+  <div class="container">
+    <div class="visit">
+      <div class="visit__info">
+        <h2 id="plan-title">Plan d'accès</h2>
+        <p class="lead">{{site.street}}, {{site.district}}, {{site.city}}.</p>
+        <p>Si vous avez du mal à trouver la clinique, appelez-nous&nbsp;: nous vous guidons par téléphone.</p>
+        <div class="visit__actions">
+          <a class="btn btn--primary" href="https://www.google.com/maps/search/?api=1&amp;query={{site.mapQuery}}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Ouvrir dans Google Maps</a>
+          <a class="link-arrow" href="tel:{{site.phoneHref}}">Appeler la clinique <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="visit__map">
+        <iframe data-src="https://maps.google.com/maps?q={{site.mapQuery}}&amp;z=15&amp;output=embed" title="Plan d'accès à CiBé Clinique" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
