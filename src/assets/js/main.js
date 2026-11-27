@@ -319,3 +319,102 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   form.addEventListener('submit', (e) => { e.preventDefault(); run(input.value); });
 });
+
+/* ---------- Hero : mot écrit à la machine dans « Tous pour la … » ---------- */
+(() => {
+  const box = document.querySelector('[data-rotate]');
+  if (!box || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const words = box.dataset.rotate.split(',').map((w) => w.trim()).filter(Boolean);
+  const el = box.firstElementChild;
+  const TYPE = 110, ERASE = 60, HOLD = 2000, GAP = 350;
+  let i = 0;
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const loop = async () => {
+    for (;;) {
+      await wait(HOLD);
+      box.classList.add('is-typing');
+      for (let n = el.textContent.length; n > 0; n--) { el.textContent = el.textContent.slice(0, -1); await wait(ERASE); }
+      await wait(GAP);
+      i = (i + 1) % words.length;
+      for (const ch of words[i]) { el.textContent += ch; await wait(TYPE); }
+      box.classList.remove('is-typing');
+    }
+  };
+  loop();
+})();
+
+/* ---------- Hero : étiquettes de services qui changent et se déplacent ---------- */
+(() => {
+  const list = document.querySelector('[data-chips]');
+  if (!list || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Réserve de services : [libellé, ancre sur services.html, icône ou null]
+  const POOL = [
+    ['Médecine générale', 'medecine-generale', null],
+    ['Pharmacie', 'pharmacie', 'i-pill'],
+    ['Urgences', 'urgences', 'i-siren'],
+    ['Consultations spécialisées', 'specialites', null],
+    ["Laboratoire d'analyses", 'laboratoire', 'i-microscope'],
+    ['Maternité', 'maternite', 'i-baby'],
+    ['Hospitalisation', 'hospitalisation', 'i-bed'],
+    ['Échographie', 'explorations', 'i-pulse'],
+    ['ECG et MAPA', 'explorations', null],
+    ['Soins infirmiers', 'soins', 'i-syringe'],
+    ['Petite chirurgie', 'soins', null],
+    ['Suivi de grossesse', 'maternite', null],
+    ['Analyses de sang', 'laboratoire', 'i-flask'],
+  ];
+  const TICK = 2600; // ms entre deux changements
+  const items = [...list.children];
+  const slotOf = (li) => li.className.match(/slot-\d/)[0];
+  const shown = () => items.map((li) => li.dataset.label || li.textContent.trim());
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  const render = (li, [label, anchor, icon]) => {
+    const a = li.querySelector('a');
+    a.href = `services.html#${anchor}`;
+    a.innerHTML = icon
+      ? `<span class="hero__chip-icon" aria-hidden="true"><svg class="icon"><use href="#${icon}"/></svg></span>${label}`
+      : label;
+    li.dataset.label = label;
+  };
+
+  // Remplace une étiquette par un service qui n'est pas déjà affiché
+  const replace = async () => {
+    const li = pick(items);
+    const free = POOL.filter(([label]) => !shown().includes(label));
+    li.classList.add('is-out');
+    await wait(380);
+    render(li, pick(free));
+    li.classList.remove('is-out');
+  };
+
+  // Deux étiquettes échangent leur emplacement
+  const swap = () => {
+    const a = pick(items);
+    const b = pick(items.filter((li) => li !== a));
+    const sa = slotOf(a), sb = slotOf(b);
+    a.classList.replace(sa, sb);
+    b.classList.replace(sb, sa);
+  };
+
+  let paused = false;
+  let visible = true;
+  list.addEventListener('mouseenter', () => (paused = true));
+  list.addEventListener('mouseleave', () => (paused = false));
+  list.addEventListener('focusin', () => (paused = true));
+  list.addEventListener('focusout', () => (paused = false));
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(list);
+
+  const loop = async () => {
+    await wait(2200); // laisser finir l'animation d'entrée
+    for (;;) {
+      await wait(TICK);
+      if (paused || !visible || document.hidden) continue;
+      if (Math.random() < 0.6) await replace();
+      else swap();
+    }
+  };
+  loop();
+})();

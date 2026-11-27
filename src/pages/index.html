@@ -7,37 +7,36 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__grid">
     <div class="hero__content">
+      <p class="hero__kicker">Tous pour la <span class="hero__word" data-rotate="santé,vie,guérison" aria-hidden="true"><span class="hero__word-in">santé</span></span><span class="visually-hidden">santé</span>…</p>
       <h1 class="hero__title" id="hero-title">
-        <span>Tous pour la santé.</span>
-        <span class="light">Tout proche de vous.</span>
+        <span class="light">Ensemble,</span>
+        <span><span class="light">pour</span> un corps</span>
+        <span>en bonne santé.</span>
       </h1>
       <p class="hero__lead">Médecine générale, sept spécialités, maternité, laboratoire, imagerie et pharmacie réunis dans une seule clinique, à côté de chez vous.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary btn--lg" href="contact.html#rendez-vous">
-          <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
-          Prendre rendez-vous
-        </a>
-        <a class="btn btn--ghost btn--lg" href="tel:{{site.phoneHref}}">
-          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
-          {{site.phone}}
+        <a class="btn btn--light btn--lg" href="services.html">Nos services</a>
+        <a class="hero__call" href="tel:{{site.phoneHref}}">
+          <span class="hero__call-icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <span class="hero__call-num"><span class="visually-hidden">Appeler le </span>{{site.phone}}</span>
         </a>
       </div>
     </div>
 
     <div class="hero__visual">
       {{> arc}}
-      <span class="hero__sun" aria-hidden="true"></span>
       <img class="hero__person"
            src="assets/img/medecin-portrait-1600.webp"
            srcset="assets/img/medecin-portrait-800.webp 800w, assets/img/medecin-portrait-1600.webp 1600w"
            sizes="(max-width: 900px) 100vw, 640px"
-           width="1600" height="1184" fetchpriority="high"
-           alt="Une soignante souriante en tenue médicale, stéthoscope autour du cou">
-      <ul class="hero__chips" aria-label="Services les plus demandés">
-        <li><a class="pill" href="services.html#specialites">Pédiatrie</a></li>
-        <li><a class="pill" href="services.html#maternite"><span class="dot dot--sun" aria-hidden="true"></span>Maternité et CPN</a></li>
-        <li><a class="pill" href="services.html#laboratoire"><span class="dot dot--blue" aria-hidden="true"></span>Laboratoire</a></li>
-        <li><a class="pill" href="services.html#urgences"><span class="pulse" aria-hidden="true"></span>Urgences</a></li>
+           width="1600" height="2148" fetchpriority="high"
+           alt="Un médecin souriant en tenue médicale, bras croisés, stéthoscope autour du cou">
+      <ul class="hero__chips" aria-label="Nos principaux services" data-chips>
+        <li class="slot-1"><a class="hero__chip" href="services.html#medecine-generale">Médecine générale</a></li>
+        <li class="slot-2"><a class="hero__chip" href="services.html#pharmacie"><span class="hero__chip-icon" aria-hidden="true"><svg class="icon"><use href="#i-pill"/></svg></span>Pharmacie</a></li>
+        <li class="slot-3"><a class="hero__chip" href="services.html#urgences"><span class="hero__chip-icon" aria-hidden="true"><svg class="icon"><use href="#i-siren"/></svg></span>Urgences</a></li>
+        <li class="slot-4"><a class="hero__chip" href="services.html#specialites">Consultations spécialisées</a></li>
+        <li class="slot-5"><a class="hero__chip" href="services.html#laboratoire"><span class="hero__chip-icon" aria-hidden="true"><svg class="icon"><use href="#i-microscope"/></svg></span>Laboratoire d'analyses</a></li>
       </ul>
     </div>
   </div>
