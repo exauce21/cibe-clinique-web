@@ -7,7 +7,7 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__grid">
     <div class="hero__content">
-      <p class="pill"><span class="dot dot--mint" aria-hidden="true"></span>Ouverte depuis le {{site.openingDate}} à {{site.district}}</p>
+      <p class="pill">Ouverte depuis le {{site.openingDate}} à {{site.district}}</p>
       <h1 class="hero__title" id="hero-title">
         <span>Tous pour la santé.</span>
         <span class="light">Tout proche de vous.</span>
@@ -29,13 +29,13 @@
       {{> arc}}
       <span class="hero__sun" aria-hidden="true"></span>
       <img class="hero__person"
-           src="assets/img/hero-medecin-1600.webp"
-           srcset="assets/img/hero-medecin-800.webp 800w, assets/img/hero-medecin-1600.webp 1600w"
+           src="assets/img/medecin-portrait-1600.webp"
+           srcset="assets/img/medecin-portrait-800.webp 800w, assets/img/medecin-portrait-1600.webp 1600w"
            sizes="(max-width: 900px) 100vw, 640px"
            width="1600" height="1184" fetchpriority="high"
            alt="Une soignante souriante en tenue médicale, stéthoscope autour du cou">
       <ul class="hero__chips" aria-label="Services les plus demandés">
-        <li><a class="pill" href="services.html#specialites"><span class="dot dot--mint" aria-hidden="true"></span>Pédiatrie</a></li>
+        <li><a class="pill" href="services.html#specialites">Pédiatrie</a></li>
         <li><a class="pill" href="services.html#maternite"><span class="dot dot--sun" aria-hidden="true"></span>Maternité et CPN</a></li>
         <li><a class="pill" href="services.html#laboratoire"><span class="dot dot--blue" aria-hidden="true"></span>Laboratoire</a></li>
         <li><a class="pill" href="services.html#urgences"><span class="pulse" aria-hidden="true"></span>Urgences</a></li>
@@ -47,6 +47,8 @@
 <section class="section section--sky" aria-labelledby="besoins-title">
   <div class="container">
     <div class="section-head">
+      <p class="eyebrow">
+        Accès rapide</p>
       <h2 id="besoins-title">Qu'est-ce qui vous amène&nbsp;?</h2>
       <p>Choisissez votre situation, nous vous indiquons le bon service.</p>
     </div>
@@ -100,6 +102,7 @@
 <section class="section" aria-labelledby="clinique-title">
   <div class="container">
     <div class="statement">
+      <p class="eyebrow"><span class="dot dot--blue" aria-hidden="true"></span>La clinique</p>
       <h2 id="clinique-title">Une clinique de quartier, avec tout le plateau technique sous le même toit.</h2>
       <p>Consultation, examens, résultats, traitement&nbsp;: chez CiBé, votre parcours se fait au même endroit. Moins de déplacements, moins d'attente, et une équipe qui connaît votre dossier.</p>
     </div>
@@ -114,6 +117,8 @@
 <section class="section section--sky" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head section-head--center">
+      <p class="eyebrow">
+        Services</p>
       <h2 id="services-title">Nos services, du premier rendez-vous au suivi</h2>
       <p>Chaque service travaille avec les autres&nbsp;: le médecin prescrit, le laboratoire analyse, la pharmacie délivre, sans que vous ayez à changer d'adresse.</p>
     </div>
@@ -237,6 +242,7 @@
 <section class="section section--ink" aria-labelledby="specialites-title">
   <div class="container">
     <div class="section-head section-head--split">
+      <p class="eyebrow">Spécialités</p>
       <h2 id="specialites-title">Sept spécialités pour vous suivre dans la durée</h2>
       <p>Diabète, hypertension, maladie des reins, grossesse&nbsp;: les maladies qui demandent un suivi régulier sont prises en charge par des spécialistes, en lien avec votre médecin traitant.</p>
     </div>
@@ -256,6 +262,7 @@
   <div class="container">
     <div class="urgent">
       <div>
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Urgences</p>
         <h2 id="urgences-title">Une urgence&nbsp;? Venez directement, nous soignons d'abord.</h2>
         <p>Aux urgences, la prise en charge commence sans formalité. Le paiement se règle après, une fois le patient stabilisé.</p>
         <div class="urgent__actions">
@@ -280,6 +287,7 @@
 <section class="section section--sky" aria-labelledby="parcours-title">
   <div class="container">
     <div class="section-head">
+      <p class="eyebrow"><span class="dot dot--blue" aria-hidden="true"></span>Votre visite</p>
       <h2 id="parcours-title">Votre visite en quatre étapes</h2>
       <p>Un circuit simple et identique pour tous les services, pour que vous sachiez toujours où aller.</p>
     </div>
@@ -313,6 +321,7 @@
       <img src="assets/img/soignante-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Une soignante en tenue bleue, souriante, dans une salle de soins">
     </div>
     <div class="team__body">
+      <p class="eyebrow"><span class="dot dot--sun" aria-hidden="true"></span>Notre équipe</p>
       <h2 id="equipe-title">Une équipe pluridisciplinaire, à votre écoute</h2>
       <p>Médecins, spécialistes, sages-femmes, infirmiers, biologistes et pharmaciens travaillent ensemble autour de chaque patient. Le Médecin Chef Directeur veille à la qualité des soins et au respect des procédures.</p>
       <ul class="tags" role="list">
@@ -333,6 +342,7 @@
   <div class="container">
     <div class="visit">
       <div class="visit__info">
+        <p class="eyebrow">Accès</p>
         <h2 id="trouver-title">Nous trouver</h2>
         <p class="lead">À {{site.district}}, facilement accessible depuis le centre de {{site.city}}.</p>
         <ul class="contact-list" role="list">
