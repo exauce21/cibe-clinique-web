@@ -1,0 +1,39 @@
+<!--meta {
+  "title": "Recherche | CiBé Clinique",
+  "description": "Rechercher un service, un examen ou une information sur le site de CiBé Clinique.",
+  "noindex": true
+} -->
+<section class="page-hero search-hero" aria-labelledby="page-title">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol role="list"><li><a href="index.html">Accueil</a></li><li><span aria-current="page">Recherche</span></li></ol>
+    </nav>
+    <h1 id="page-title">Rechercher sur le site</h1>
+    <form class="search-form search-form--page" action="recherche.html" method="get" role="search" data-search-form>
+      <label class="visually-hidden" for="search-page-q">Votre recherche</label>
+      <svg class="icon search-form__icon" aria-hidden="true"><use href="#i-search"/></svg>
+      <input class="search-form__input" id="search-page-q" name="q" type="search" placeholder="Un service, un examen, une question…" autocomplete="off">
+      <button class="btn btn--primary search-form__submit" type="submit">Rechercher</button>
+    </form>
+  </div>
+</section>
+
+<section class="section" aria-label="Résultats de la recherche">
+  <div class="container search-page">
+    <p class="search-status" role="status" aria-live="polite" data-search-status>Saisissez un mot pour lancer la recherche.</p>
+    <ol class="search-results" role="list" data-search-results></ol>
+
+    <div class="search-empty" data-search-empty hidden>
+      <h2>Vous ne trouvez pas&nbsp;?</h2>
+      <p>Essayez un mot plus court ou plus général, ou parcourez directement nos pages&nbsp;:</p>
+      <ul class="search-empty__links" role="list">
+        <li><a href="services.html">Nos services</a></li>
+        <li><a href="patients.html">Votre visite</a></li>
+        <li><a href="clinique.html">La clinique</a></li>
+        <li><a href="contact.html">Contact et rendez-vous</a></li>
+      </ul>
+      <p>Le secrétariat peut aussi vous renseigner au <a href="tel:{{site.phoneHref}}">{{site.phone}}</a>.</p>
+    </div>
+  </div>
+</section>
+<script src="assets/js/search-index.js" defer></script>

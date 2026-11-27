@@ -49,6 +49,40 @@ async function loadPartials() {
   return out;
 }
 
+/* ---------- Index de recherche ----------
+ * Découpe chaque page en blocs « titre h1/h2/h3 + texte qui suit ».
+ * Chaque bloc pointe vers l'ancre la plus proche (id du titre, sinon dernier id rencontré). */
+const ENTITIES = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", '#39': "'", rsquo: '’', hellip: '…' };
+const toText = (html) =>
+  html
+    .replace(/<(script|style|svg)[\s\S]*?<\/\1>/g, ' ')
+    .replace(/<(\w+)[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/\1>/g, ' ')
+    .replace(/<p class="eyebrow">[\s\S]*?<\/p>/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(#?\w+);/g, (m, e) => ENTITIES[e] ?? m)
+    .replace(/\s+/g, ' ')
+    .trim();
+
+function indexPage(html, file, meta) {
+  const pageLabel = file === 'index.html' ? 'Accueil' : (meta.title || '').split('|')[0].trim();
+  const heads = [...html.matchAll(/<h([1-3])([^>]*)>([\s\S]*?)<\/h\1>/g)];
+  return heads
+    .map((h, i) => {
+      const start = h.index + h[0].length;
+      const end = i + 1 < heads.length ? heads[i + 1].index : html.length;
+      const ownId = h[2].match(/\bid="([^"]+)"/);
+      const ids = [...html.slice(0, h.index).matchAll(/\bid="([^"]+)"/g)];
+      const anchor = ownId ? ownId[1] : ids.length ? ids[ids.length - 1][1] : '';
+      return {
+        page: pageLabel,
+        title: toText(h[3]),
+        url: file + (anchor && h[1] !== '1' ? `#${anchor}` : ''),
+        text: toText(html.slice(start, end)).slice(0, 700),
+      };
+    })
+    .filter((e) => e.title);
+}
+
 async function build() {
   const t0 = Date.now();
   const site = JSON.parse(await readFile(join(SRC, 'site.json'), 'utf8'));
@@ -65,6 +99,7 @@ async function build() {
 
   const pages = (await readdir(join(SRC, 'pages'))).filter((f) => f.endsWith('.html'));
   const urls = [];
+  const searchIndex = [];
 
   for (const file of pages) {
     const raw = await readFile(join(SRC, 'pages', file), 'utf8');
@@ -87,8 +122,17 @@ async function build() {
       html = html.replaceAll(`data-nav="${page.nav}"`, `data-nav="${page.nav}" aria-current="page"`);
     }
     await writeFile(join(DIST, file), html);
-    if (!meta.noindex) urls.push(page.url);
+    if (!meta.noindex) {
+      urls.push(page.url);
+      searchIndex.push(...indexPage(render(body, ctx, partials), file, meta));
+    }
   }
+
+  /* Index de recherche : chargé par recherche.html (fonctionne aussi hors serveur, en file://) */
+  await writeFile(
+    join(DIST, 'assets', 'js', 'search-index.js'),
+    `window.SEARCH_INDEX = ${JSON.stringify(searchIndex)};\n`
+  );
 
   const today = new Date().toISOString().slice(0, 10);
   await writeFile(
@@ -99,7 +143,7 @@ async function build() {
   );
   await writeFile(join(DIST, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 
-  console.log(`✓ ${pages.length} pages construites dans dist/ (${Date.now() - t0} ms)`);
+  console.log(`✓ ${pages.length} pages construites dans dist/, ${searchIndex.length} entrées de recherche (${Date.now() - t0} ms)`);
 }
 
 const MIME = {

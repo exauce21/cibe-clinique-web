@@ -56,6 +56,35 @@
     if (!mqMobile.matches && !e.currentTarget.closest('li').contains(e.relatedTarget)) setSub(false);
   });
 
+  /* Recherche : panneau sous l'en-tête */
+  const searchPanel = document.getElementById('search-panel');
+  const searchToggles = [...document.querySelectorAll('[data-search-toggle]')];
+  const setSearch = (open) => {
+    if (!searchPanel) return;
+    searchPanel.hidden = !open;
+    searchToggles.forEach((b) => b.setAttribute('aria-expanded', String(open)));
+    document.body.classList.toggle('has-search', open);
+    if (open) {
+      setSub(false);
+      if (nav?.classList.contains('is-open')) setMenu(false);
+      searchPanel.querySelector('input')?.focus();
+    }
+  };
+  searchToggles.forEach((b) => b.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setSearch(searchPanel.hidden);
+  }));
+  subToggle?.addEventListener('click', () => { if (searchPanel && !searchPanel.hidden) setSearch(false); });
+  document.addEventListener('click', (e) => {
+    if (searchPanel && !searchPanel.hidden && !searchPanel.contains(e.target)) setSearch(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && searchPanel && !searchPanel.hidden) {
+      setSearch(false);
+      searchToggles.find((b) => b.offsetParent !== null)?.focus();
+    }
+  });
+
   /* Onglets accessibles (motif ARIA « tabs », activation automatique) */
   document.querySelectorAll('[data-tabs]').forEach((root) => {
     const tabs = [...root.querySelectorAll('[role="tab"]')];
@@ -191,3 +220,102 @@
     });
   }
 })();
+
+/* ---------- Page de résultats de recherche ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+  const list = document.querySelector('[data-search-results]');
+  if (!list) return;
+  const index = window.SEARCH_INDEX || [];
+  const form = document.querySelector('[data-search-form]');
+  const input = form.querySelector('input');
+  const status = document.querySelector('[data-search-status]');
+  const empty = document.querySelector('[data-search-empty]');
+
+  // Minuscules sans accents : « Échographie » trouve « echographie » et inversement
+  const norm = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const prepared = index.map((e) => ({ ...e, nTitle: norm(e.title), nPage: norm(e.page), nText: norm(e.text) }));
+
+  const highlight = (text, terms) => {
+    const n = norm(text);
+    if (n.length !== text.length) return esc(text);
+    const ranges = [];
+    terms.forEach((t) => {
+      let i = n.indexOf(t);
+      while (i !== -1) { ranges.push([i, i + t.length]); i = n.indexOf(t, i + t.length); }
+    });
+    ranges.sort((a, b) => a[0] - b[0]);
+    let out = '', pos = 0;
+    ranges.forEach(([a, b]) => {
+      if (a < pos) return;
+      out += esc(text.slice(pos, a)) + '<mark>' + esc(text.slice(a, b)) + '</mark>';
+      pos = b;
+    });
+    return out + esc(text.slice(pos));
+  };
+
+  // Extrait d'environ 220 caractères centré sur la première occurrence
+  const excerpt = (text, terms) => {
+    const n = norm(text);
+    const hit = Math.min(...terms.map((t) => n.indexOf(t)).filter((i) => i >= 0));
+    if (!isFinite(hit) || text.length <= 220) return text.slice(0, 220) + (text.length > 220 ? '…' : '');
+    const start = Math.max(0, text.lastIndexOf(' ', Math.max(0, hit - 70)) + 1);
+    const end = Math.min(text.length, start + 220);
+    return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+  };
+
+  const run = (q) => {
+    const terms = norm(q).split(/[\s,;'’-]+/).filter((t) => t.length > 1);
+    list.innerHTML = '';
+    empty.hidden = true;
+    if (!terms.length) {
+      status.textContent = 'Saisissez un mot pour lancer la recherche.';
+      return;
+    }
+    const results = prepared
+      .map((e) => {
+        // Un bloc remonte s'il contient au moins un mot ; ceux qui les contiennent tous passent devant
+        let score = 0, found = 0;
+        for (const t of terms) {
+          const inTitle = e.nTitle.includes(t), inPage = e.nPage.includes(t), inText = e.nText.includes(t);
+          if (!inTitle && !inPage && !inText) continue;
+          found++;
+          score += (inTitle ? 6 : 0) + (inPage ? 2 : 0) + (inText ? 1 + Math.min(4, e.nText.split(t).length - 2) : 0);
+        }
+        if (!found) return null;
+        return { e, score: score + (found === terms.length ? 20 : 0) };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 30);
+
+    const label = `« ${q.trim()} »`;
+    status.textContent = results.length
+      ? `${results.length} résultat${results.length > 1 ? 's' : ''} pour ${label}`
+      : `Aucun résultat pour ${label}`;
+    empty.hidden = results.length > 0;
+    list.innerHTML = results
+      .map(({ e }) => `<li class="result"><a href="${esc(e.url)}">
+          <span class="result__page">${esc(e.page)}</span>
+          <strong class="result__title">${highlight(e.title, terms)}</strong>
+          <span class="result__text">${highlight(excerpt(e.text, terms), terms)}</span>
+        </a></li>`)
+      .join('');
+  };
+
+  const q = new URLSearchParams(location.search).get('q') || '';
+  input.value = q;
+  run(q);
+
+  let timer;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      run(input.value);
+      const url = new URL(location.href);
+      if (input.value.trim()) url.searchParams.set('q', input.value.trim()); else url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+    }, 150);
+  });
+  form.addEventListener('submit', (e) => { e.preventDefault(); run(input.value); });
+});

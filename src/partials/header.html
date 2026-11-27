@@ -36,14 +36,14 @@
                 <div class="mega__col">
                   <a class="mega__title mega__title--link" href="services.html"><span class="mega__label-desk">Nos services</span><span class="mega__label-mob">Voir tous les services</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
                   <ul class="mega__list">
-                    <li><a href="services.html#medecine-generale"><strong>Médecine générale</strong><span>Consultations pour toute la famille</span></a></li>
-                    <li><a href="services.html#specialites"><strong>Spécialités</strong><span>Pédiatrie, cardiologie, diabétologie…</span></a></li>
-                    <li><a href="services.html#urgences"><strong>Urgences</strong><span>Prise en charge immédiate</span></a></li>
-                    <li><a href="services.html#maternite"><strong>Maternité</strong><span>CPN, accouchement, post-natal</span></a></li>
-                    <li><a href="services.html#hospitalisation"><strong>Hospitalisation</strong><span>Observation, chambres standard et VIP</span></a></li>
-                    <li><a href="services.html#laboratoire"><strong>Laboratoire</strong><span>Plus de 65 examens sur place</span></a></li>
-                    <li><a href="services.html#explorations"><strong>Échographie, ECG, MAPA</strong><span>Explorations fonctionnelles</span></a></li>
-                    <li><a href="services.html#soins"><strong>Soins infirmiers</strong><span>Injections, pansements, petite chirurgie</span></a></li>
+                    <li><a href="services.html#medecine-generale"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-stethoscope"/></svg></span><span class="mega__txt"><strong>Médecine générale</strong><span>Consultations pour toute la famille</span></span></a></li>
+                    <li><a href="services.html#specialites"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-clipboard"/></svg></span><span class="mega__txt"><strong>Spécialités</strong><span>Pédiatrie, cardiologie, diabétologie…</span></span></a></li>
+                    <li><a href="services.html#urgences"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-emergency"/></svg></span><span class="mega__txt"><strong>Urgences</strong><span>Prise en charge immédiate</span></span></a></li>
+                    <li><a href="services.html#maternite"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-baby"/></svg></span><span class="mega__txt"><strong>Maternité</strong><span>CPN, accouchement, post-natal</span></span></a></li>
+                    <li><a href="services.html#hospitalisation"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-bed"/></svg></span><span class="mega__txt"><strong>Hospitalisation</strong><span>Observation, chambres standard et VIP</span></span></a></li>
+                    <li><a href="services.html#laboratoire"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-flask"/></svg></span><span class="mega__txt"><strong>Laboratoire</strong><span>Plus de 65 examens sur place</span></span></a></li>
+                    <li><a href="services.html#explorations"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-pulse"/></svg></span><span class="mega__txt"><strong>Échographie, ECG, MAPA</strong><span>Explorations fonctionnelles</span></span></a></li>
+                    <li><a href="services.html#soins"><span class="mega__icon" aria-hidden="true"><svg class="icon"><use href="#i-syringe"/></svg></span><span class="mega__txt"><strong>Soins infirmiers</strong><span>Injections, pansements, petite chirurgie</span></span></a></li>
                   </ul>
                 </div>
 
@@ -78,6 +78,10 @@
           <li><a class="nav__link" href="contact.html" data-nav="contact">Contact</a></li>
         </ul>
         <div class="nav__actions">
+          <button class="nav__search" type="button" aria-expanded="false" aria-controls="search-panel" data-search-toggle>
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <span class="visually-hidden">Rechercher sur le site</span>
+          </button>
           <a class="btn btn--sun" href="tel:{{site.phoneHref}}">
             <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
             <span>Appeler</span>
@@ -86,6 +90,10 @@
         </div>
       </nav>
 
+      <button class="header-search" type="button" aria-expanded="false" aria-controls="search-panel" data-search-toggle>
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <span class="visually-hidden">Rechercher sur le site</span>
+      </button>
       <a class="header-call" href="tel:{{site.phoneHref}}" aria-label="Appeler la clinique au {{site.phone}}">
         <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
       </a>
@@ -94,5 +102,25 @@
         <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"/></svg>
         <span class="visually-hidden">Menu</span>
       </button>
+    </div>
+
+    <div class="search-panel" id="search-panel" hidden>
+      <div class="container">
+        <form class="search-form" action="recherche.html" method="get" role="search">
+          <label class="visually-hidden" for="search-q">Rechercher sur le site</label>
+          <svg class="icon search-form__icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input class="search-form__input" id="search-q" name="q" type="search" placeholder="Un service, un examen, une question…" autocomplete="off" required>
+          <button class="btn btn--primary search-form__submit" type="submit">Rechercher</button>
+        </form>
+        <p class="search-suggest">
+          <span>Recherches fréquentes&nbsp;:</span>
+          <a href="recherche.html?q=pédiatrie">Pédiatrie</a>
+          <a href="recherche.html?q=maternité">Maternité</a>
+          <a href="recherche.html?q=laboratoire">Laboratoire</a>
+          <a href="recherche.html?q=échographie">Échographie</a>
+          <a href="recherche.html?q=paiement">Paiement</a>
+          <a href="recherche.html?q=urgences">Urgences</a>
+        </p>
+      </div>
     </div>
   </header>
