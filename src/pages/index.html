@@ -123,22 +123,15 @@
       <p>Chaque service travaille avec les autres&nbsp;: le médecin prescrit, le laboratoire analyse, la pharmacie délivre, sans que vous ayez à changer d'adresse.</p>
     </div>
 
-    <div class="tabs" data-tabs>
-      <div class="tabs__list" role="tablist" aria-label="Services de la clinique">
-        <button class="tabs__tab" role="tab" id="tab-consult" aria-controls="panel-consult" aria-selected="true" type="button">Consultations</button>
-        <button class="tabs__tab" role="tab" id="tab-mater" aria-controls="panel-mater" aria-selected="false" tabindex="-1" type="button">Maternité</button>
-        <button class="tabs__tab" role="tab" id="tab-labo" aria-controls="panel-labo" aria-selected="false" tabindex="-1" type="button">Laboratoire</button>
-        <button class="tabs__tab" role="tab" id="tab-explo" aria-controls="panel-explo" aria-selected="false" tabindex="-1" type="button">Échographie, ECG, MAPA</button>
-        <button class="tabs__tab" role="tab" id="tab-hospi" aria-controls="panel-hospi" aria-selected="false" tabindex="-1" type="button">Hospitalisation</button>
-        <button class="tabs__tab" role="tab" id="tab-pharma" aria-controls="panel-pharma" aria-selected="false" tabindex="-1" type="button">Pharmacie</button>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-consult" aria-labelledby="tab-consult" tabindex="0">
-        <div class="tabs__media">
-          <img src="assets/img/consultation-medecin-1600.webp" srcset="assets/img/consultation-medecin-800.webp 800w, assets/img/consultation-medecin-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une médecin souriante reçoit une patiente en consultation">
-        </div>
-        <div class="tabs__body">
-          <h3>Médecine générale et spécialités</h3>
+    <div class="folders">
+      <article class="folder" style="--i: 0" aria-labelledby="folder-consult-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">01</span>Consultations</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/consultation-medecin-1600.webp" srcset="assets/img/consultation-medecin-800.webp 800w, assets/img/consultation-medecin-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une médecin souriante reçoit une patiente en consultation">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-consult-title">Médecine générale et spécialités</h3>
           <p>Le médecin généraliste est votre premier interlocuteur. Il vous examine, prescrit les examens utiles et vous oriente, si besoin, vers l'un de nos spécialistes.</p>
           <ul class="checklist checklist--two" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Pédiatrie</li>
@@ -150,15 +143,17 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Médecine dentaire</li>
           </ul>
           <a class="link-arrow" href="services.html#medecine-generale">Voir les consultations <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-mater" aria-labelledby="tab-mater" tabindex="0" hidden>
-        <div class="tabs__media">
-          <img src="assets/img/gynecologie-1600.webp" srcset="assets/img/gynecologie-800.webp 800w, assets/img/gynecologie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une femme enceinte, les mains posées sur son ventre">
-        </div>
-        <div class="tabs__body">
-          <h3>Maternité et suivi de grossesse</h3>
+      </article>
+      <article class="folder" style="--i: 1" aria-labelledby="folder-mater-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">02</span>Maternité</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/gynecologie-1600.webp" srcset="assets/img/gynecologie-800.webp 800w, assets/img/gynecologie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une femme enceinte, les mains posées sur son ventre">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-mater-title">Maternité et suivi de grossesse</h3>
           <p>De la première consultation prénatale au retour à la maison, une équipe de sages-femmes et de gynécologues suit la mère et l'enfant.</p>
           <ul class="checklist" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Consultations prénatales (CPN) et calendrier de suivi</li>
@@ -167,15 +162,17 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Premiers soins et vaccination du nouveau-né</li>
           </ul>
           <a class="link-arrow" href="services.html#maternite">Découvrir la maternité <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-labo" aria-labelledby="tab-labo" tabindex="0" hidden>
-        <div class="tabs__media">
-          <img src="assets/img/laboratoire-analyse-1600.webp" srcset="assets/img/laboratoire-analyse-800.webp 800w, assets/img/laboratoire-analyse-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Un biologiste observe un échantillon au microscope">
-        </div>
-        <div class="tabs__body">
-          <h3>Laboratoire d'analyses biomédicales</h3>
+      </article>
+      <article class="folder" style="--i: 2" aria-labelledby="folder-labo-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">03</span>Laboratoire</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/laboratoire-analyse-1600.webp" srcset="assets/img/laboratoire-analyse-800.webp 800w, assets/img/laboratoire-analyse-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Un biologiste observe un échantillon au microscope">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-labo-title">Laboratoire d'analyses biomédicales</h3>
           <p>Prélèvement, analyse et résultats au même endroit. Chaque résultat est validé par un biologiste avant de vous être remis ou transmis à votre médecin.</p>
           <ul class="checklist checklist--two" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hématologie</li>
@@ -185,15 +182,17 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Parasitologie</li>
           </ul>
           <a class="link-arrow" href="services.html#laboratoire">Voir les examens <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-explo" aria-labelledby="tab-explo" tabindex="0" hidden>
-        <div class="tabs__media">
-          <img src="assets/img/echographie-1600.webp" srcset="assets/img/echographie-800.webp 800w, assets/img/echographie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une soignante prépare un examen à côté d'un échographe">
-        </div>
-        <div class="tabs__body">
-          <h3>Explorations fonctionnelles et imagerie</h3>
+      </article>
+      <article class="folder" style="--i: 3" aria-labelledby="folder-explo-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">04</span>Échographie, ECG, MAPA</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/echographie-1600.webp" srcset="assets/img/echographie-800.webp 800w, assets/img/echographie-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1067" loading="lazy" decoding="async" alt="Une soignante prépare un examen à côté d'un échographe">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-explo-title">Explorations fonctionnelles et imagerie</h3>
           <p>Des examens qui complètent la consultation, réalisés et interprétés sur place, avec un compte rendu remis au médecin qui vous suit.</p>
           <ul class="checklist" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Échographie cardiaque, abdominale, obstétricale et autres</li>
@@ -201,15 +200,17 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>MAPA&nbsp;: mesure de la tension artérielle sur 24 heures</li>
           </ul>
           <a class="link-arrow" href="services.html#explorations">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-hospi" aria-labelledby="tab-hospi" tabindex="0" hidden>
-        <div class="tabs__media">
-          <img src="assets/img/infirmiere-notes-1600.webp" srcset="assets/img/infirmiere-notes-800.webp 800w, assets/img/infirmiere-notes-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Une infirmière remplit une feuille de surveillance">
-        </div>
-        <div class="tabs__body">
-          <h3>Observation et hospitalisation</h3>
+      </article>
+      <article class="folder" style="--i: 4" aria-labelledby="folder-hospi-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">05</span>Hospitalisation</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/infirmiere-notes-1600.webp" srcset="assets/img/infirmiere-notes-800.webp 800w, assets/img/infirmiere-notes-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1068" loading="lazy" decoding="async" alt="Une infirmière remplit une feuille de surveillance">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-hospi-title">Observation et hospitalisation</h3>
           <p>Quand votre état demande une surveillance, vous restez avec nous. Les équipes de jour et de nuit se relaient à votre chevet.</p>
           <ul class="checklist" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>8 lits de mise en observation</li>
@@ -217,15 +218,17 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Surveillance, soins et compte rendu de sortie</li>
           </ul>
           <a class="link-arrow" href="services.html#hospitalisation">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
-
-      <div class="tabs__panel" role="tabpanel" id="panel-pharma" aria-labelledby="tab-pharma" tabindex="0" hidden>
-        <div class="tabs__media">
-          <img src="assets/img/pharmacie-officine-1600.webp" srcset="assets/img/pharmacie-officine-800.webp 800w, assets/img/pharmacie-officine-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1065" loading="lazy" decoding="async" alt="Une pharmacienne à son poste, devant les rayonnages de médicaments">
-        </div>
-        <div class="tabs__body">
-          <h3>Pharmacie</h3>
+      </article>
+      <article class="folder" style="--i: 5" aria-labelledby="folder-pharma-title">
+        <p class="folder__tab" aria-hidden="true"><span class="folder__num">06</span>Pharmacie</p>
+        <div class="folder__sheet">
+          <div class="folder__media">
+            <img src="assets/img/pharmacie-officine-1600.webp" srcset="assets/img/pharmacie-officine-800.webp 800w, assets/img/pharmacie-officine-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 640px" width="1600" height="1065" loading="lazy" decoding="async" alt="Une pharmacienne à son poste, devant les rayonnages de médicaments">
+          </div>
+          <div class="folder__body">
+          <h3 id="folder-pharma-title">Pharmacie</h3>
           <p>Vos médicaments vous sont délivrés sur place, avec les explications utiles sur la prise du traitement.</p>
           <ul class="checklist" role="list">
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Délivrance sur ordonnance</li>
@@ -233,8 +236,9 @@
             <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Contrôle des dates de péremption et des lots</li>
           </ul>
           <a class="link-arrow" href="services.html#pharmacie">En savoir plus <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
