@@ -546,19 +546,17 @@ main:focus {
   border-radius: 50%;
   background: var(--sun);
 }
-.nav__item--has-menu .nav__link {
-  padding-right: 0.3rem;
-}
+/* « Nos services » : le libellé entier ouvre le méga-menu */
 .nav__toggle {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  color: var(--ink);
-  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
 }
-.nav__toggle:hover {
+.nav__toggle[aria-expanded="true"] {
   background: var(--sky);
 }
 .nav__toggle .icon {
@@ -570,17 +568,42 @@ main:focus {
   transform: rotate(180deg);
 }
 
+/* Voile sur la page quand le méga-menu est ouvert (ordinateur) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: rgb(0 45 92 / 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+@media (min-width: 981px) {
+  body.has-mega::after {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  body.has-mega .site-header {
+    background: var(--white);
+  }
+}
+
+/* Méga-menu « Nos services » : pleine largeur sous l'en-tête */
+@media (min-width: 981px) {
+  .nav__list > li.nav__item--has-menu {
+    position: static;
+  }
+}
 .submenu {
   position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  translate: -50% 0;
-  width: min(680px, 90vw);
-  padding: 0.75rem;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding-block: clamp(1.75rem, 3vw, 2.5rem);
   background: var(--white);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 var(--r-xl) var(--r-xl);
   animation: drop 0.25s var(--ease);
 }
 @keyframes drop {
@@ -589,33 +612,204 @@ main:focus {
     transform: translateY(-6px);
   }
 }
-.submenu__grid {
+.mega {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.25rem;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  align-items: stretch;
 }
-.submenu a {
+.mega__title {
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.mega__title--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.mega__label-mob {
+  display: none;
+}
+.mega__title--link .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--blue);
+  transition: transform 0.2s ease;
+}
+.mega__title--link:hover {
+  color: var(--blue);
+}
+.mega__title--link:hover .icon {
+  transform: translateX(3px);
+}
+.mega__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.15rem 0.75rem;
+}
+.mega__list a {
   display: block;
-  padding: 0.75rem 0.9rem;
+  padding: 0.6rem 0.8rem;
+  margin-inline: -0.8rem;
   border-radius: 14px;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
-.submenu a:hover {
+.mega__list a:hover {
   background: var(--sky);
 }
-.submenu strong {
+.mega__list strong {
   display: block;
   color: var(--ink);
   font-weight: 650;
   font-size: 0.98rem;
 }
-.submenu span {
+.mega__list span {
   display: block;
+  margin-top: 0.1rem;
   color: var(--muted);
   font-size: var(--fs-xs);
   line-height: 1.4;
-  margin-top: 0.15rem;
+}
+
+/* Colonne 2 : la pharmacie mise en avant, fond vert */
+.mega__pharma {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+  padding-top: 5rem;
+  border-radius: var(--r-lg);
+  background: var(--mint);
+  color: var(--ink);
+}
+/* Icône « encoche » : grand rond blanc qui mord le coin du bloc, comme dans la maquette */
+.mega__pharma-icon {
+  position: absolute;
+  top: -14px;
+  left: -18px;
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--white);
+}
+.mega__pharma-icon::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--mint-soft);
+}
+.mega__pharma-icon .icon {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  padding: 11px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--mint);
+}
+.mega__pharma .mega__title {
+  margin-bottom: 0.4rem;
+}
+.mega__pharma p:not(.mega__title) {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+.mega__checks {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 1.25rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.mega__checks li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.mega__checks .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 0.22rem;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--mint);
+}
+.mega__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  font-weight: 650;
+  color: var(--ink);
+  text-decoration: none;
+}
+.mega__more .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.2s ease;
+}
+.mega__more:hover .icon {
+  transform: translateX(3px);
+}
+
+/* Colonne 3 : contact rapide */
+.mega__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  border-radius: var(--r-lg);
+  background: var(--sky);
+}
+.mega__aside .mega__title {
+  margin-bottom: 0.4rem;
+}
+.mega__contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--r-md);
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.mega__contact:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+.mega__contact .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--blue);
+}
+.mega__contact:hover .icon {
+  color: var(--mint);
+}
+.mega__contact small {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  opacity: 0.75;
+}
+.mega__aside .mega__more {
+  padding-top: 0.5rem;
+  color: var(--blue);
 }
 
 .nav__actions {
@@ -738,26 +932,66 @@ main:focus {
     height: 8px;
   }
   .nav__item--has-menu .nav__link[aria-current="page"]::after {
-    right: 0.5rem;
+    right: 3.75rem;
   }
   .nav__toggle {
+    justify-content: space-between;
+    text-align: left;
+  }
+  .nav__toggle[aria-expanded="true"] {
+    background: none;
+  }
+  .nav__toggle .icon {
     width: 44px;
     height: 44px;
+    padding: 12px;
+    border-radius: 50%;
     background: var(--sky);
   }
   .submenu {
     position: static;
-    translate: none;
     width: 100%;
     padding: 0 0 1rem;
     border: 0;
-    box-shadow: none;
+    border-radius: 0;
     animation: none;
   }
-  .submenu__grid {
+  .mega {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .mega__aside {
+    display: none;
+  }
+  .mega__pharma {
+    padding-top: 1.5rem;
+  }
+  .mega__pharma-icon {
+    position: static;
+    width: auto;
+    height: auto;
+    margin-bottom: 1rem;
+    background: none;
+  }
+  .mega__label-desk {
+    display: none;
+  }
+  .mega__label-mob {
+    display: inline;
+  }
+  .mega__title--link {
+    margin: 0.25rem 0 0.5rem 0.75rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 650;
+    color: var(--blue);
+  }
+  .mega__list {
     grid-template-columns: minmax(0, 1fr);
   }
-  .submenu a {
+  .mega__list a {
+    margin-inline: 0;
     padding: 0.6rem 0.75rem;
   }
   .nav__actions {

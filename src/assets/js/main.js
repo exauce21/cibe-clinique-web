@@ -38,6 +38,7 @@
     if (!subToggle || !submenu) return;
     subToggle.setAttribute('aria-expanded', String(open));
     submenu.hidden = !open;
+    document.body.classList.toggle('has-mega', open);
   };
   subToggle?.addEventListener('click', (e) => {
     e.stopPropagation();

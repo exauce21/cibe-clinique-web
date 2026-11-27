@@ -27,23 +27,51 @@
           <li><a class="nav__link" href="index.html" data-nav="accueil">Accueil</a></li>
           <li><a class="nav__link" href="clinique.html" data-nav="clinique">La clinique</a></li>
           <li class="nav__item--has-menu">
-            <a class="nav__link" href="services.html" data-nav="services">Nos services</a>
-            <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu-services" data-submenu-toggle>
+            <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-services" data-nav="services" data-submenu-toggle>
+              Nos services
               <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
-              <span class="visually-hidden">Afficher la liste des services</span>
             </button>
             <div class="submenu" id="menu-services" hidden>
-              <ul class="submenu__grid">
-                <li><a href="services.html#medecine-generale"><strong>Médecine générale</strong><span>Consultations pour toute la famille</span></a></li>
-                <li><a href="services.html#specialites"><strong>Spécialités</strong><span>Pédiatrie, cardiologie, diabétologie…</span></a></li>
-                <li><a href="services.html#urgences"><strong>Urgences</strong><span>Prise en charge immédiate</span></a></li>
-                <li><a href="services.html#maternite"><strong>Maternité</strong><span>CPN, accouchement, post-natal</span></a></li>
-                <li><a href="services.html#hospitalisation"><strong>Hospitalisation</strong><span>Observation, chambres standard et VIP</span></a></li>
-                <li><a href="services.html#laboratoire"><strong>Laboratoire</strong><span>Plus de 65 examens sur place</span></a></li>
-                <li><a href="services.html#explorations"><strong>Échographie, ECG, MAPA</strong><span>Explorations fonctionnelles</span></a></li>
-                <li><a href="services.html#pharmacie"><strong>Pharmacie</strong><span>Médicaments et conseils</span></a></li>
-                <li><a href="services.html#soins"><strong>Soins infirmiers</strong><span>Injections, pansements, petite chirurgie</span></a></li>
-              </ul>
+              <div class="container mega">
+                <div class="mega__col">
+                  <a class="mega__title mega__title--link" href="services.html"><span class="mega__label-desk">Nos services</span><span class="mega__label-mob">Voir tous les services</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <ul class="mega__list">
+                    <li><a href="services.html#medecine-generale"><strong>Médecine générale</strong><span>Consultations pour toute la famille</span></a></li>
+                    <li><a href="services.html#specialites"><strong>Spécialités</strong><span>Pédiatrie, cardiologie, diabétologie…</span></a></li>
+                    <li><a href="services.html#urgences"><strong>Urgences</strong><span>Prise en charge immédiate</span></a></li>
+                    <li><a href="services.html#maternite"><strong>Maternité</strong><span>CPN, accouchement, post-natal</span></a></li>
+                    <li><a href="services.html#hospitalisation"><strong>Hospitalisation</strong><span>Observation, chambres standard et VIP</span></a></li>
+                    <li><a href="services.html#laboratoire"><strong>Laboratoire</strong><span>Plus de 65 examens sur place</span></a></li>
+                    <li><a href="services.html#explorations"><strong>Échographie, ECG, MAPA</strong><span>Explorations fonctionnelles</span></a></li>
+                    <li><a href="services.html#soins"><strong>Soins infirmiers</strong><span>Injections, pansements, petite chirurgie</span></a></li>
+                  </ul>
+                </div>
+
+                <div class="mega__col mega__pharma">
+                  <span class="mega__pharma-icon" aria-hidden="true"><svg class="icon"><use href="#i-pill"/></svg></span>
+                  <p class="mega__title">Pharmacie</p>
+                  <p>Vos médicaments délivrés à la sortie de la consultation, avec les bons conseils.</p>
+                  <ul class="mega__checks" role="list">
+                    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Délivrance sur ordonnance</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Conseils sur la prise du traitement</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suivi des lots et des dates de péremption</li>
+                  </ul>
+                  <a class="mega__more" href="services.html#pharmacie">Découvrir la pharmacie <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+
+                <div class="mega__col mega__aside">
+                  <p class="mega__title">Besoin d'aide&nbsp;?</p>
+                  <a class="mega__contact" href="tel:{{site.phoneHref}}">
+                    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+                    <span><small>Urgences jour et nuit</small>{{site.phone}}</span>
+                  </a>
+                  <a class="mega__contact" href="contact.html#rendez-vous">
+                    <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+                    <span><small>En ligne</small>Demander un rendez-vous</span>
+                  </a>
+                  <a class="mega__more" href="services.html">Tous les services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
             </div>
           </li>
           <li><a class="nav__link" href="patients.html" data-nav="patients">Votre visite</a></li>
